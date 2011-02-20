@@ -1,0 +1,9 @@
+kulandýðýnýz her bir modül için, burada modülün ismi ile ayný olacak þekilde bir dizin(Klasör) oluþturmanýz gerekmektedir.
+
+Oluþturduðunuz dizin içine tedarikçi entegrasyonu modülünde $this->xml ile tanýmladýðýnýz adresten 
+tedarikcinizin size özel verdiði datalar aktarýlabilir.
+
+Bu bölümün güvenliðini saðlamak size aittir. Ayrýca buradaki datalar size özeldir.
+Tedarikçiniz ile sizin aranýzdaki özel bilgilerden oluþmaktadýr.
+
+Tedarikçi Entegrasyonu Modüllerini buraya indirdiðiniz verileri okuyacak þekilde hazýrlamalýsýnýz veya hazýrlatmalýsýnýz.

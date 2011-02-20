@@ -1,0 +1,1019 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<STYLE type=text/css>
+DIV { text-align:left;
+FONT-FAMILY: verdana; FONT-SIZE: 10pt; margin:10px 10px 10px 10px
+}
+
+A {
+	COLOR: black; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+PRE {
+	BORDER-BOTTOM: #dedede 1px solid; BORDER-LEFT: #dedede 1px solid; PADDING-BOTTOM: 0.5em !important; LINE-HEIGHT: 1.5em !important; BACKGROUND-COLOR: #f8f8ff !important; MARGIN: 1em 0px; PADDING-LEFT: 0.5em !important; PADDING-RIGHT: 0.5em !important; COLOR: #000 !important; FONT-SIZE: 12px !important; OVERFLOW: auto !important; BORDER-TOP: #dedede 1px solid; BORDER-RIGHT: #dedede 1px solid; PADDING-TOP: 0.5em !important
+}
+PRE CODE {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; PADDING-BOTTOM: 0px !important; BACKGROUND-COLOR: #f8f8ff !important; PADDING-LEFT: 0px !important; PADDING-RIGHT: 0px !important; FONT-SIZE: 12px !important; BORDER-TOP: medium none; BORDER-RIGHT: medium none; PADDING-TOP: 0px !important
+}
+CODE {BORDER-BOTTOM: #dedede 1px solid; BORDER-LEFT: #dedede 1px solid; PADDING-BOTTOM: 0px !important; BACKGROUND-COLOR: #f8f8ff !important; PADDING-LEFT: 0.2em !important; PADDING-RIGHT: 0.2em !important; COLOR: #000 !important; FONT-SIZE: 12px !important; BORDER-TOP: #dedede 1px solid; BORDER-RIGHT: #dedede 1px solid; PADDING-TOP: 0px !important
+}
+A CODE {
+	COLOR: #000 !important
+}
+A:link CODE {
+	COLOR: #000 !important
+}
+ A:visited CODE {
+	COLOR: #000 !important
+}
+body {
+	background-color: #EEEEEE;
+}
+</STYLE>
+</head>
+
+<body>
+<table width="750" border="1" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" valign="middle" bgcolor="#ffffff">
+    <div>
+  <p><font color="black" size="2" face="Verdana, Arial"><font color="#66cc00" size="4" 
+face="Verdana, Arial"><b>T&uuml;rk&ccedil;e Entegrasyon Mod&uuml;l&uuml; Yazma Kılavuzu</b></font></font>    <font color="black" size="2" 
+face="Verdana, Arial">
+    </font></p>
+  <font color="black" size="2" 
+face="Verdana, Arial">
+  <hr />
+  </font>
+  <p><font color="black" size="2" face="Verdana, Arial"><font color="black" size="2" 
+face="Verdana, Arial"></font></font>Tedarikci Entegrasyonu Modül Yazma Klavuzu Prowered by <a 
+href="http://www.duzgun.com/" target="_blank">http://www.duzgun.com/</a></p>
+<p>T.E entegrasyonu yazılımı güçlü çekirdek altyapısı ile açık kaynak yönetim 
+    imkanını kullanıcılarına sunmaktadır. Bu nedenle tedarikçi modülleri açık kaynak 
+    koddur.</p>
+  <p>Tedarikçi Entegrasyonunun çekirdeğine T.E. Motoru denilmektedir. T.E 
+    modülleri, açık kaynak kod olduğu için herhangi bir yere bağımlılığınız yoktur. 
+    Herhangi bir php yazılımcısı bu klavuz eşliğinde değişen <span 
+class="caps">XML</span> şekilllerini ve data formatını görüp kullandığı modülü 
+    düzenleyebilir. Yine php yazılımcısı olmayanlar herhangi bir php yazılımcısına 
+    güncel modülü yazdırabilir.</p>
+  <p><span class="caps">XML</span> yapısı değişikliğinden kaynaklı olmak üzere modül 
+    güncelleme işlemini kullanıcı kendi imkanları ile yapabilir. Kişi modülleri 
+    istediği gibi geliştirebilir ve yazabilir. Bunun için bir engelleyici kuralda 
+    yoktur.</p>
+  <p>T.E kullanıcılarının Modül konusunda sıkıntı çekmemeleri ve bağımlılıklarını 
+    ortadan kaldırmak için T.E modül yazma klavuzu yayınlanmıştır.</p>
+  <p>Tedarikçi Entegrasyonu Modül Yapısı (Modül yazmak ve güncellemek için Php 
+    diline hakim olmanız yada php ye hakim olan birine yazdırmanız gereklidir.)</p>
+  <p>Tedarikçi Entegrasyonu modülleri tekbir php dosyasından oluşmaktadır.</p>
+  <p>Modül Şablonu(Class yapısı) Aşağıdaki gibi olmalıdır.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">demo
+</span><span style="color: #007700">{
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$title</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$description</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$enabled</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$category</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$feature</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$option</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$brand</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$price</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$stock</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$xml</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$xmlperbyte</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">demo</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">code&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"demo"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Demo&nbsp;Entegrasyonu"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">description&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enabled&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DEMO_STATUS&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"True"&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sort_order&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">category&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">feature&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">option&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">brand&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">price&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stock&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'http://www.xmladresim/dosyam.xml'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'urunler.xml'</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xmlperbyte&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">version&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'1.0.0'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">check</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">keys</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"DEMO_STATUS"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">install</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">feature</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">product</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">category</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">brand</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">option</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">price</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">stock</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+  <p>Yukarıdaki örnek dosyada<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'http://www.xmladresim/dosyam.xml'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'urunler.xml'</span><span style="color: #007700">);</span>
+</span></code>?&gt;<code><span style="color: #000000"></span></code></pre>
+  <p>Satırı ile indirilecek xml url adresleri ve kaydedileceği dosya adı 
+    yazmaktadır. kayıt işlemi otomatik olarak xml/demo(modül ismi ile aynı) 
+    dizin(klasörüne) yapılacaktır.<br />
+    http://www.xmladresim/dosyam.xml ile yazılan 
+    data ulaşım satırı size özeldir ve tedarikçiniz ile sizin arasındaki yasal 
+    sözleşmelere bağlıdır. Bu adresi her modüle siz yazarsınız. Bu adresi 
+    paylaşmamalısınız. Tedarikçi Entegrasyonu modülünde yazdığınız yukarıdaki php 
+    kodu sayesinde size ozel olan bu dosya sitenize güvenli olarak indirilir. Birden 
+    çok xml dosyası indirilecekse kod satırı şu şekilde de yazılabilir.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'http://www.xmladresim/dosyam.xml'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'urunler.xml'</span><span style="color: #007700">,
+</span><span style="color: #DD0000">'http://www.xmladresim/dosyam2.xml'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'fiyatlar.xml'</span><span style="color: #007700">);
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+  <br />
+  Bu 
+  değişken biçimine php de hash veya associative array denilmektedir.<br />
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">product</span><span style="color: #007700">(&nbsp;)
+{
+global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+}
+</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span></code></pre>
+  <br />
+  Fonksiyonu T.E arayüzünde xml oku yönteminde Ürünler butonuna 
+  tıklandığından çalıştırılan fonksiyondur.
+  <p>Bu fonksiyon ile ilk modülümüzü yazalım.<br />
+    <span class="caps">XML</span> örneği aşağıdaki gibi olsun.<br />
+  </p>
+  <pre><code><span style="color: #000000">&lt;?xml&nbsp;version="1.0"&nbsp;encoding="iso-8859-9"&nbsp;?&gt;&nbsp;
+&lt;urunler&gt;
+&lt;urun&gt;
+&lt;ID&gt;&lt;/ID&gt;&nbsp;
+&lt;Adi&gt;&lt;/Adi&gt;&nbsp;
+&lt;KategoriAdi&gt;&lt;/KategoriAdi&gt;&nbsp;
+&lt;KategoriID&gt;&lt;/KategoriID&gt;&nbsp;
+&lt;Fiyat&gt;&lt;/Fiyat&gt;&nbsp;
+&lt;kur&gt;&lt;/kur&gt;&nbsp;
+&lt;Stok&gt;&lt;/Stok&gt;
+&lt;Aciklama&gt;
+&lt;/Aciklama&gt;
+&lt;Resim&gt;&lt;/Resim&gt;&nbsp;
+&lt;/urun&gt;
+...
+&lt;/urunler&gt;</span></code></pre>
+  <p>yukarıdaki taglar arasına kendiniz birşeyler yazabilirsiniz. Php dilindeki 
+    simplexml yöntemi ile xml okuma işlemini kolaylıkla yapabilmektesiniz. Öncelikle 
+    xml lerde bulunan tag(etiket)lar herhangi bir değişkene atanmalı. Bu şekilde 
+    kullanımı çok daha basit olmaktadır.</p>
+  <p>Yukarıdaki xml e göre tag değişkenlerimizi yazıyoruz.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$baslangicetiketi&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'urun'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$urun_kodu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'ID'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$urun_adi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Adi'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$kategori_kodu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'KategoriID'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$kategori_adi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'KategoriAdi'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$urun_fiyati&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Fiyat'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$parabirimi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'kur'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$urun_stogu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Stok'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$urun_aciklamasi&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Aciklama'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$urun_resmi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Resim'</span><span style="color: #007700">;
+</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span></code></pre>
+  <p>Modülün kodlamasına devam ederken $this→xml değişkeniyle indirilmesi 
+    istediğimiz xml in adını yazarak simplexml sınıfına aktarıyoruz. simplexml 
+    sınıfının bir kopyası simplexml_load_file fonksiyonu ile $xmlData değişkenine 
+    aktarılmaktadır. $xmlData→{$baslangicetiketi} değişkeni ile <span 
+class="caps">XML</span> yapısındaki urun etiketine erişebilmekteyiz. urun etiketi 
+    array(dizi) özellikli olduğu için foreach ile herbir urun etiket içeriği 
+    $product değişkenine atanarak saydırılmaktadır.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$xmlData&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">simplexml_load_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">code</span><span style="color: #007700">.</span><span style="color: #DD0000">"/urunler.xml"</span><span style="color: #007700">);
+foreach(</span><span style="color: #0000BB">$xmlData</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$baslangicetiketi</span><span style="color: #007700">}&nbsp;as&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">)
+{
+}
+</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span></code></pre>
+  <p>foreach döngüsünden ürün bilgilerine etiket isimlerini yazarak 
+    ulaşabilmekteyiz. Bu ulaşım xml data şekli ve simplexml in bize sunduğu 
+    yöntemlerle direk bağlantılıdır.<br />
+    foreach döngüsü içine aşağıdaki kodu 
+    ekleyelim.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">category&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'code'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$kategori_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$kategori_adi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'parentcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">);
+</span><span style="color: #0000BB">core_category</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+  <p>$this→category değişkeni ve core_category() fonksiyonu özel isimlidir. <br />
+    $this→category değişkenine hash formatlı datalar <br />
+    code = kategori 
+    belirteci<br />
+    cname = kategori görünür adı<br />
+    parentcode = kategori belirtecine 
+    bağlı olup olmadığı(yazılan kategorinin altında oluşturulur boş ise ana kategori 
+    demektir.)<br />
+    anlamına gelir.</p>
+  <p>core_category(); fonksiyonu T.E motorundaki bir fonksiyondur ve 
+    $this→category değişkenindeki bilgileri T.E motoruna göndererek gönderilen 
+    bilgilerin işlenmesini sağlar. Bu durumda kategori henüz aktarılmamışsa T.E 
+    kontrol tablolarında oluşturulur yada güncellenirler.</p>
+  <p>Ürün bilgilerinin T.E motoruna gönderilmesi için ise aşağıdaki yöntem 
+    uygulanır.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'pcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'pname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_adi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'price1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_fiyati</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'currency'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$parabirimi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'tax'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'KDV&nbsp;DAHIL'</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'stock'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_stogu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'catid'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$kategori_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'brand'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'My&nbsp;Brand'</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'desc'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_aciklamasi</span><span style="color: #007700">})
+</span><span style="color: #0000BB">$pid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core_product</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span></code></pre>
+  <p>Ürün resimlerinin T.E motoruna gönderilmesi ise aşağıdaki şekilde 
+    yapılmaktadır. number hash değerine atanan 0 değeri varsayılan resim anlamına 
+    gelmektedir. Birden çok resim aynı yöntemle eklenebilmektedir.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">image&nbsp;</span><span style="color: #007700">=&nbsp;array(&nbsp;&nbsp;</span><span style="color: #DD0000">'pid'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$pid</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'image'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_resmi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'thumb'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">''</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'number'&nbsp;</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">);
+</span><span style="color: #0000BB">core_image_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">$pid</span><span style="color: #007700">);
+</span><span style="color: #0000BB">core_image</span><span style="color: #007700">();
+</span><span style="color: #0000BB">core_image_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">,</span><span style="color: #0000BB">$pid</span><span style="color: #007700">);
+</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span></code></pre>
+  <p>Modülün hazır hali ise aşağıdaki gibi olmaktadır.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">demo
+</span><span style="color: #007700">{
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$title</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$description</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$enabled</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$category</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$feature</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$option</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$brand</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$price</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$stock</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$xml</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$xmlperbyte</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">demo</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">code&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"demo"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Demo&nbsp;Entegrasyonu"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">description&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enabled&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DEMO_STATUS&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"True"&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sort_order&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">category&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">feature&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">option&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">brand&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">price&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stock&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'http://www.xmladresim/dosyam.xml'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'urunler.xml'</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xmlperbyte&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">version&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'1.0.0'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">check</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">keys</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"DEMO_STATUS"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">install</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">feature</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">product</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$baslangicetiketi&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'urun'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$urun_kodu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'ID'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$urun_adi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Adi'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$kategori_kodu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'KategoriID'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$kategori_adi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'KategoriAdi'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$urun_fiyati&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Fiyat'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$parabirimi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'kur'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$urun_stogu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Stok'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$urun_aciklamasi&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Aciklama'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$urun_resmi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Resim'</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$xmlData&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">simplexml_load_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">code</span><span style="color: #007700">.</span><span style="color: #DD0000">"/urunler.xml"</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$xmlData</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$baslangicetiketi</span><span style="color: #007700">}&nbsp;as&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">category&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'code'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$kategori_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$kategori_adi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'parentcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">core_category</span><span style="color: #007700">();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'pcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'pname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_adi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'price1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_fiyati</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'currency'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$parabirimi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'tax'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'KDV&nbsp;DAHIL'</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'stock'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_stogu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'catid'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$kategori_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'brand'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'My&nbsp;Brand'</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'desc'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_aciklamasi</span><span style="color: #007700">})
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core_product</span><span style="color: #007700">();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">image&nbsp;</span><span style="color: #007700">=&nbsp;array(&nbsp;&nbsp;</span><span style="color: #DD0000">'pid'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$pid</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'image'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_resmi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'thumb'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">''</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'number'&nbsp;</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">core_image_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">$pid</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">core_image</span><span style="color: #007700">();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">core_image_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">,</span><span style="color: #0000BB">$pid</span><span style="color: #007700">);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">category</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">brand</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">option</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">price</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">stock</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}&nbsp;
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+  <p>Herhangi bir <span class="caps">XXXXX</span> Entegrasyon modülünün içeriği 
+    standart olarak aşağıdaki gibi olacaktır. Bu içerik standarttır ve tüm modüller 
+    için geçerlidir.<br />
+  </p>
+<pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">xxxxx
+</span><span style="color: #007700">{
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$title</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$description</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$enabled</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$category</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$feature</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$option</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$brand</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$price</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$stock</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$xml</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$xmlperbyte</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">xxxxx</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">code&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"xxxxx"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Xxxxx&nbsp;Entegrasyonu"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">description&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enabled&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">XXXXX_STATUS&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"True"&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sort_order&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">category&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">feature&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">option&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">brand&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">price&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stock&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">''&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xmlperbyte&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">version&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'1.0.0'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">check</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">keys</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"XXXXX_STATUS"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">install</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">feature</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">product</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">category</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">brand</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">option</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">price</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">stock</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+  <p>Tedarikçi entegrasyonu yazılımının modules dizinine yukarıdaki kodu xxxxx.php 
+    adı ile kaydedersiniz.</p>
+  <p>Parçalı entegrasyon özelliğinin modüle eklenme işlemi:<br />
+    Sunucu time out 
+    sorunu yaşayan kullanıcılara özel olarak parçalı okuma özelliği T.E ile 
+    sunulmuştur. Parçalı okuma işleminin yapılabilmesi için modülün bu işlemi 
+    desteklemesi gerekir. Modüle bu destek ise Aşağıdaki biçimde eklenir.Aşağıdaki 
+    örnekte basit bir modül yapısını ele alalım.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">demo
+</span><span style="color: #007700">{
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$title</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$description</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$enabled</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$category</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$feature</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$option</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$brand</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$price</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$stock</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$xml</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$xmlperbyte</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">demo</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">code&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"demo"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Demo&nbsp;Entegrasyonu"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">description&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enabled&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DEMO_STATUS&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"True"&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sort_order&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">category&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">feature&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">option&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">brand&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">price&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stock&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'http://www.xmladresim/dosyam.xml'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'urunler.xml'</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xmlperbyte&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">version&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'1.0.0'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">check</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">keys</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"DEMO_STATUS"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">install</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">feature</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">product</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//1.Başlangıç&nbsp;bölümü.
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$xmlData&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">simplexml_load_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">code</span><span style="color: #007700">.</span><span style="color: #DD0000">"/urunler.xml"</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$xmlData</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$baslangicetiketi</span><span style="color: #007700">}&nbsp;as&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//2.Okuma&nbsp;işleminin&nbsp;yapıldığı&nbsp;bölüm.
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//3.&nbsp;Son&nbsp;Kısım&nbsp;/onay&nbsp;kısmı.
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">category</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">brand</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">option</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">price</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">stock</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}&nbsp;
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+  <p>1, 2 ve 3 numaraları ile adlandırılan kısımlara sırasıyla aşağıdaki kodlar 
+    eklenir.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">//1.Başlangıç&nbsp;bölümü.
+
+//modify&nbsp;code&nbsp;start
+</span><span style="color: #0000BB">$start&nbsp;</span><span style="color: #007700">=&nbsp;isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'start'</span><span style="color: #007700">])?</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">strremove</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'start'</span><span style="color: #007700">]):</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$limit&nbsp;</span><span style="color: #007700">=&nbsp;isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'limit'</span><span style="color: #007700">])?</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">strremove</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'limit'</span><span style="color: #007700">]):</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+</span><span style="color: #0000BB">$counter</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+</span><span style="color: #FF8000">//modify&nbsp;code&nbsp;end
+//modify&nbsp;code&nbsp;start
+</span><span style="color: #007700">if(</span><span style="color: #0000BB">$start</span><span style="color: #007700">==</span><span style="color: #0000BB">0</span><span style="color: #007700">){
+</span><span style="color: #FF8000">//core_feature_setopt(true);
+</span><span style="color: #007700">}
+</span><span style="color: #FF8000">//modify&nbsp;code&nbsp;end&nbsp;
+
+//2.Okuma&nbsp;işleminin&nbsp;yapıldığı&nbsp;bölüm.
+
+//modify&nbsp;code&nbsp;start
+</span><span style="color: #0000BB">$counter</span><span style="color: #007700">++;
+if(</span><span style="color: #0000BB">$start</span><span style="color: #007700">&gt;=</span><span style="color: #0000BB">$counter</span><span style="color: #007700">)&nbsp;continue;
+if(</span><span style="color: #0000BB">$limit</span><span style="color: #007700">!=</span><span style="color: #0000BB">0</span><span style="color: #007700">&amp;&amp;(</span><span style="color: #0000BB">$start</span><span style="color: #007700">+</span><span style="color: #0000BB">$limit</span><span style="color: #007700">)&lt;</span><span style="color: #0000BB">$counter</span><span style="color: #007700">)&nbsp;continue;
+</span><span style="color: #FF8000">//modify&nbsp;code&nbsp;end&nbsp;
+
+//3.&nbsp;Son&nbsp;Kısım&nbsp;/onay&nbsp;kısmı.
+
+//modify&nbsp;code&nbsp;start
+</span><span style="color: #007700">if(</span><span style="color: #0000BB">$limit</span><span style="color: #007700">!=</span><span style="color: #0000BB">0</span><span style="color: #007700">&amp;&amp;(</span><span style="color: #0000BB">$start</span><span style="color: #007700">+</span><span style="color: #0000BB">$limit</span><span style="color: #007700">)&lt;</span><span style="color: #0000BB">$counter</span><span style="color: #007700">)
+{
+echo&nbsp;</span><span style="color: #DD0000">"&lt;center&gt;&lt;br&gt;&lt;p&gt;Toplam&nbsp;İşlem&nbsp;Sayısı&nbsp;&lt;WAITPROCESS&gt;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$counter</span><span style="color: #007700">.</span><span style="color: #DD0000">"&lt;/WAITPROCESS&gt;&lt;/p&gt;&lt;/center&gt;"</span><span style="color: #007700">;
+return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+}else
+{
+</span><span style="color: #FF8000">//core_feature_setopt(false);
+</span><span style="color: #007700">}
+</span><span style="color: #FF8000">//modify&nbsp;code&nbsp;end</span></span></code><code><span style="color: #000000">
+?&gt;</span></code></pre>
+  <p>Bu işlemlerle 1. bölümde limit ve start çevre değişkenleri ile sıradaki 
+    okunacak kaydın hangi kayıttan başlayacağını ve ne kadar kayıt okuyacağını 
+    belirtir.</p>
+  <p>2. bölümde ise okunacak kayıt mikatından fazla kayıt varsa işlem okuma işlemi 
+    yapılmadan bir sonraki parçalışı işlem devamı için döngü boş geçilir.</p>
+  <p>3. İşlem tamamlanmışsa return null değerini otomatik döndürmüş olur eğer 
+    return 1 ise indirme işlemi parçalı yapılmıştır ve devam etmektedir anlamına 
+    gelir.</p>
+  <p>Son olarak basit modül şablonumuza parçalı işlem özelliğini eklediğimiz kod 
+    aşağıdaki biçimde olacaktır.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">demo
+</span><span style="color: #007700">{
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$title</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$description</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$enabled</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$category</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$feature</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$option</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$brand</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$price</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$stock</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$xml</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$xmlperbyte</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">demo</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">code&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"demo"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Demo&nbsp;Entegrasyonu"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">description&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">enabled&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DEMO_STATUS&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">"True"&nbsp;</span><span style="color: #007700">?&nbsp;</span><span style="color: #0000BB">true&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sort_order&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">category&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">feature&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">option&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">brand&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">price&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stock&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'http://www.xmladresim/dosyam.xml'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'urunler.xml'</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xmlperbyte&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">version&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'1.0.0'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">check</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">keys</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"DEMO_STATUS"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">install</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">feature</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">product</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$baslangicetiketi&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'urun'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$urun_kodu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'ID'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$urun_adi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Adi'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$kategori_kodu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'KategoriID'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$kategori_adi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'KategoriAdi'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$urun_fiyati&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Fiyat'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$parabirimi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'kur'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$urun_stogu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Stok'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$urun_aciklamasi&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Aciklama'</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$urun_resmi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Resim'</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//modify&nbsp;code&nbsp;start
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$start&nbsp;</span><span style="color: #007700">=&nbsp;isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'start'</span><span style="color: #007700">])?</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">strremove</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'start'</span><span style="color: #007700">]):</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$limit&nbsp;</span><span style="color: #007700">=&nbsp;isset(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'limit'</span><span style="color: #007700">])?</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">strremove</span><span style="color: #007700">(</span><span style="color: #0000BB">$_GET</span><span style="color: #007700">[</span><span style="color: #DD0000">'limit'</span><span style="color: #007700">]):</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$counter</span><span style="color: #007700">=</span><span style="color: #0000BB">0</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//modify&nbsp;code&nbsp;end
+&nbsp;&nbsp;&nbsp;&nbsp;//modify&nbsp;code&nbsp;start
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">$start</span><span style="color: #007700">==</span><span style="color: #0000BB">0</span><span style="color: #007700">){
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//core_feature_setopt(true);
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//modify&nbsp;code&nbsp;end
+
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$xmlData&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">simplexml_load_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">.</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">code</span><span style="color: #007700">.</span><span style="color: #DD0000">"/urunler.xml"</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$xmlData</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$baslangicetiketi</span><span style="color: #007700">}&nbsp;as&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//modify&nbsp;code&nbsp;start
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$counter</span><span style="color: #007700">++;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$start</span><span style="color: #007700">&gt;=</span><span style="color: #0000BB">$counter</span><span style="color: #007700">)&nbsp;continue;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">$limit</span><span style="color: #007700">!=</span><span style="color: #0000BB">0</span><span style="color: #007700">&amp;&amp;(</span><span style="color: #0000BB">$start</span><span style="color: #007700">+</span><span style="color: #0000BB">$limit</span><span style="color: #007700">)&lt;</span><span style="color: #0000BB">$counter</span><span style="color: #007700">)&nbsp;continue;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//modify&nbsp;code&nbsp;end
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">category&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'code'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$kategori_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$kategori_adi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'parentcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">core_category</span><span style="color: #007700">();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'pcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'pname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_adi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'price1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_fiyati</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'currency'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$parabirimi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'tax'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'KDV&nbsp;DAHIL'</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'stock'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_stogu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'catid'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$kategori_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'brand'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'My&nbsp;Brand'</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'desc'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_aciklamasi</span><span style="color: #007700">})
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core_product</span><span style="color: #007700">();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">image&nbsp;</span><span style="color: #007700">=&nbsp;array(&nbsp;&nbsp;</span><span style="color: #DD0000">'pid'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$pid</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'image'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_resmi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'thumb'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">''</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'number'&nbsp;</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">core_image_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">$pid</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">core_image</span><span style="color: #007700">();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">core_image_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">,</span><span style="color: #0000BB">$pid</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//modify&nbsp;code&nbsp;start
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">$limit</span><span style="color: #007700">!=</span><span style="color: #0000BB">0</span><span style="color: #007700">&amp;&amp;(</span><span style="color: #0000BB">$start</span><span style="color: #007700">+</span><span style="color: #0000BB">$limit</span><span style="color: #007700">)&lt;</span><span style="color: #0000BB">$counter</span><span style="color: #007700">)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;center&gt;&lt;br&gt;&lt;p&gt;Toplam&nbsp;İşlem&nbsp;Sayısı&nbsp;&lt;WAITPROCESS&gt;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$counter</span><span style="color: #007700">.</span><span style="color: #DD0000">"&lt;/WAITPROCESS&gt;&lt;/p&gt;&lt;/center&gt;"</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+&nbsp;&nbsp;&nbsp;&nbsp;}else
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//core_feature_setopt(false);
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//modify&nbsp;code&nbsp;end
+
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">category</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">brand</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">option</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">price</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">stock</span><span style="color: #007700">(&nbsp;)
+&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;</span><span style="color: #0000BB">$xml_directory</span><span style="color: #007700">;
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+  <p>Ürün disable / enable senkronizasyon özelliğinin Modül eklenmesi.</p>
+  <p>config.php dosyasında aşağıdaki kod olacaktır.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">/*ürün&nbsp;disable&nbsp;/&nbsp;enable&nbsp;senkronizasyon&nbsp;özelliği&nbsp;tedarikçi&nbsp;modülüne&nbsp;bağımlı&nbsp;olsun&nbsp;ise&nbsp;true&nbsp;olmalıdır.&nbsp;
+Modülde&nbsp;isdeleted&nbsp;alanı&nbsp;ile&nbsp;düzenleme&nbsp;gerektirir.&nbsp;
+true&nbsp;kullanıldı&nbsp;ise&nbsp;e-ticaret&nbsp;sisteminizden&nbsp;ürünü&nbsp;disable&nbsp;ettiğinizde&nbsp;
+isdeleted&nbsp;modülde&nbsp;tanımlı&nbsp;değilse&nbsp;güncellemelerde&nbsp;otomatik&nbsp;enable&nbsp;e&nbsp;dönüşecektir.&nbsp;
+Bu&nbsp;nedenle&nbsp;modülde&nbsp;isdeleted&nbsp;kullanılmadığı&nbsp;durumda&nbsp;false&nbsp;tercih&nbsp;edilmelidir.*/
+</span><span style="color: #0000BB">$PUPDATESTATUS&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">;
+</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span></code></pre>
+  <p>açıklama satırından da anlaşılacağı gibi modülde isdeleted özelliği 
+    kullanılabilmektedir. modülde isdeleted özelliğinin kullanılabilmesi için 
+    config.php deki $<span class="caps">PUPDATESTATUS</span> = true; değişkeninin 
+    değerinin true olması gerekir. Bu değer false ise isdeleted kullanımının etkisi 
+    olmaz.</p>
+  <p>isdeleted özelliği modülde $this→product hash değişkenine eklenir. isdeleted 
+    index inin aldığı değer 1 ise ürün e-ticaret sistemine durumu disable olarak 
+    eklenir yada güncellenir. 0 ise enable olarak eklenir.</p>
+  <p>E-ticaret yönetim panelinizden ürün durumunu disable yapsanızda isdeleted ile 
+    enable geliyorsa durumu otomatik enabled e dönüşecektir.</p>
+  <p>disabled = pasif<br />
+    enabled = aktif olma durumudur.</p>
+  <p>isdeleted kullanım örneği aşağıdadır.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'pcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'pname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_adi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'price1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_fiyati</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'currency'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$parabirimi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'tax'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'KDV&nbsp;DAHIL'</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'stock'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_stogu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'catid'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$kategori_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'brand'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'My&nbsp;Brand'</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'desc'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_aciklamasi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'isdeleted'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;((empty(</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_resmi</span><span style="color: #007700">}))?</span><span style="color: #0000BB">1</span><span style="color: #007700">:</span><span style="color: #0000BB">0</span><span style="color: #007700">)
+);</span><span style="color: #0000BB">
+?&gt;</span>&nbsp;</span></code></pre>
+  <p>örnekteki uygulamayla eğer ürün resmi yoksa ürünün pasif olarak 
+    aktarılacaktır.</p>
+  <p>Stok durumuna göre modülde davranış sergiletme işlemi</p>
+  <p>Stok yoksa eklenmesin ve benzeri durumları kontrol etmek işlemi modüllerde 
+    oldukça kolaydır.</p>
+  <p>Örnek kullanım şu şekilde olacaktır.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">if(</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_stogu</span><span style="color: #007700">}&nbsp;&lt;</span><span style="color: #0000BB">1</span><span style="color: #007700">){
+
+
+}
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+  <p>Bu eğer ifadesini aşağıdaki biçinde modülde kullanabilirsiniz.<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #007700">if(</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_stogu</span><span style="color: #007700">}&nbsp;&lt;</span><span style="color: #0000BB">1</span><span style="color: #007700">){
+
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'pcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'pname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_adi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'price1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_fiyati</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'currency'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$parabirimi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'tax'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'KDV&nbsp;DAHIL'</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'stock'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_stogu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'catid'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$kategori_kodu</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'brand'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'My&nbsp;Brand'</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'desc'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_aciklamasi</span><span style="color: #007700">})
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$pid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core_product</span><span style="color: #007700">();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">image&nbsp;</span><span style="color: #007700">=&nbsp;array(&nbsp;&nbsp;</span><span style="color: #DD0000">'pid'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$pid</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'image'</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$urun_resmi</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'thumb'</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">''</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'number'&nbsp;</span><span style="color: #007700">=&gt;</span><span style="color: #0000BB">0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">core_image_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">$pid</span><span style="color: #007700">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">core_image</span><span style="color: #007700">();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">core_image_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">,</span><span style="color: #0000BB">$pid</span><span style="color: #007700">);</span>
+</span>
+</code><code><span style="color: #000000">
+
+?&gt;</span></code></pre>
+  <p>Bu kullanım şekli ise eğer stoktaki ürün adedi 1 den az ise T.E motoruna ürün 
+    gönderilmeyecektir.</p>
+  <p>Ürün Özellikleri(Properties), Ürün Seçenekleri(Attribute), Marka (Brand), 
+    Sadece Stok ve Sadece Fiyat göncelleme işlemleri için kullanılacak 
+    yöntemler.</p>
+  <p>Ürün Özellikleri(Properties)<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">//&nbsp;Başlangıç&nbsp;ve&nbsp;bitiş&nbsp;kontrol&nbsp;fonksiyonu&nbsp;core_feature_setopt()&nbsp;dir.
+&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">feature&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'pid'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$pid</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'key'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$keyvalues</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$Product_Key</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'val'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$keyvalues</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$Product_Value</span><span style="color: #007700">});
+</span><span style="color: #0000BB">core_feature</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+  <p>Ürün Seçenekleri(Attribute)<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">//&nbsp;Başlangıç&nbsp;ve&nbsp;bitiş&nbsp;kontrol&nbsp;fonksiyonu&nbsp;core_option_setopt()&nbsp;dir.
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">option&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'pid'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$pid</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'key'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Ürün&nbsp;Ölçüsü'</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'val'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'price1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$product_price2</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'stock'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;(</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$product_stock</span><span style="color: #007700">}==</span><span style="color: #DD0000">'var'</span><span style="color: #007700">)?</span><span style="color: #0000BB">50</span><span style="color: #007700">:</span><span style="color: #0000BB">0</span><span style="color: #007700">);
+</span><span style="color: #0000BB">core_option</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span></code></pre>
+  <p>Marka (Brand)<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">brand&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'bcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$brand</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$brand_code</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'bname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$brand</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$brand_cname</span><span style="color: #007700">});
+</span><span style="color: #0000BB">core_brand</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span></code></pre>
+  <p>Sadece fiyat güncelle<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'pcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$product_code</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'price1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$product_price1</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'currency'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$currency_code</span><span style="color: #007700">});
+</span><span style="color: #0000BB">core_product</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span></code></pre>
+  <p>Sadece Stok güncelle<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'pcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$product_code</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'stock'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$product_stock</span><span style="color: #007700">});
+</span><span style="color: #0000BB">core_product</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+  <p>Herhangi bir ürünün id sinin bulunması ($pid) işlemi<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'pcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$product_code</span><span style="color: #007700">});
+</span><span style="color: #0000BB">$pid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">core_product_id</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span></code></pre>
+  <br />
+  İndirimli Ürün Yönetiminin Modüle Eklenmesi<br />
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+</span><span style="color: #FF8000">//&nbsp;Başlangıç&nbsp;ve&nbsp;bitiş&nbsp;kontrol&nbsp;fonksiyonu&nbsp;core_special_setopt()&nbsp;dir.
+</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">product&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'pcode'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$product_id</span><span style="color: #007700">},
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'price'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$product</span><span style="color: #007700">-&gt;{</span><span style="color: #0000BB">$product_price</span><span style="color: #007700">});
+</span><span style="color: #0000BB">core_special</span><span style="color: #007700">();
+</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span></code></pre>
+  <p><span class="caps">XML</span> Model Analizi I<br />
+  </p>
+  <pre><code><span style="color: #000000"><span style="color: #0000BB">&lt;?php
+$xmlContent&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;TXT
+</span><span style="color: #DD0000">&lt;?xml&nbsp;version="1.0"&nbsp;encoding="ISO-8859-9"?&gt;
+&lt;urun_listesi&gt;
+&lt;urun&gt;
+&lt;kategori&gt;Avuçiçi&nbsp;Bilgisayar&lt;/kategori&gt;
+&lt;kategori_id&gt;105&lt;/kategori_id&gt;
+&lt;urun_kodu&gt;HP-00001&lt;/urun_kodu&gt;
+&lt;urun_adi&gt;HP&nbsp;IPAQ&nbsp;614c&nbsp;BUS&nbsp;NAV.&nbsp;GSM/GPRS/EDGE/GPS&lt;/urun_adi&gt;
+&lt;fiyat&gt;580.00&lt;/fiyat&gt;
+&lt;pb&gt;USD&lt;/pb&gt;
+&lt;stok&gt;20&lt;/stok&gt;
+&lt;marka&gt;HP&lt;/marka&gt;
+&lt;resim&gt;http://www.domain.com/hpipaq.jpg&lt;/resim&gt;
+&lt;/urun&gt;
+&lt;/urun_listesi&gt;
+</span><span style="color: #007700">TXT
+;
+</span><span style="color: #0000BB">?&gt;
+&lt;?php
+$referans_kategori&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'kategori'</span><span style="color: #007700">;
+
+</span><span style="color: #0000BB">$xmlData&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">simplexml_load_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$xmlContent</span><span style="color: #007700">);
+</span><span style="color: #FF8000">//print_r($xmlData);
+</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$xmlData&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">)
+{
+echo&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">kategori</span><span style="color: #007700">;
+echo&nbsp;</span><span style="color: #DD0000">"&lt;br&gt;\n"</span><span style="color: #007700">;
+echo&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">$referans_kategori</span><span style="color: #007700">;
+</span><span style="color: #FF8000">//kategori&nbsp;etiketine&nbsp;$data-&gt;kategori&nbsp;veya&nbsp;$data-&gt;$referans_kategori&nbsp;şeklinde&nbsp;ulaşılabilir.
+//print_r($data);
+</span><span style="color: #007700">}
+</span><span style="color: #0000BB">?&gt;</span></span></code></pre>
+  <p>Simple xml ile ilgili ayrıntılı 
+    bilgiye<br />
+    <a href="http://php.net/manual/en/book.simplexml.php" target="_blank">http://php.net/manual/en/book.simplexml.php</a><br />
+    Adresinden 
+    ulaşabilirsiniz.</p>
+  <p><a href="http://www.duzgun.com/e-ticaret-entegrasyon-urunleri/entegrasyon-modulu-destegi-f-123.html" target="_blank">http://www.duzgun.com/e-ticaret-entegrasyon-urunleri/entegrasyon-modulu-destegi-f-123.html</a><br />
+    Adresinden  ayrıntılı açıklamalara ve kullanım örneklerine ulaşabilirsiniz.
+  </p>
+    </div>
+    </td>
+  </tr>
+</table><p align="center">Copyright © 2008 <a href="http://www.duzgun.com" target="_blank">Duzgun.com</a> All rights   reserved.<br />
+Coded by: Yavuz Yasin DÜZGÜN</p>
+</body>
+</html>

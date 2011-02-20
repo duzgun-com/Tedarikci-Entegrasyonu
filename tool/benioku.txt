@@ -1,0 +1,11 @@
+alldeleted.php oscommerce ve tedarikçi entegrasyonu tablolarýný sýfýrlar. Veritabanýndaki ürün bilgilerini siler.
+
+deletemodule.php ise seçilen modül ile ilgili tüm bilgileri silmektedir.
+
+phpminiadmin.php dosyasý ile veritabaný tablolarýnýzý kontrol edebilirsiniz.
+
+protection.php ile dizinleri parola korumalý hale getirebilirsiniz.
+
+module_wizard.php ile entegrasyon modülünü sihirbaz aracýlýyla oluþturabilirsiniz.
+
+module_wizard_soap.php ile wsdl gibi soap protokolü kullanan servislere baðlantý kurup entegrasyon modülünü sihirbaz aracýlýyla oluþturabilirsiniz.

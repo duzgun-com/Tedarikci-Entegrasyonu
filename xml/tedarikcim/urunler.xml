@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="iso-8859-9" ?> 
+<urunler>
+<urun>
+<ID>1</ID> 
+<Adi>Ad 1</Adi> 
+<KategoriAdi>Kat 1</KategoriAdi> 
+<KategoriID>1</KategoriID> 
+<Fiyat>1.00</Fiyat> 
+<kur>USD</kur> 
+<Stok>10</Stok>
+<Aciklama>
+Açıklama 1
+</Aciklama>
+<Resim>http://resim1</Resim> 
+</urun>
+<urun>
+<ID>2</ID> 
+<Adi>Ad 2</Adi> 
+<KategoriAdi>Kat 2</KategoriAdi> 
+<KategoriID>2</KategoriID> 
+<Fiyat>1.00</Fiyat> 
+<kur>USD</kur> 
+<Stok>10</Stok>
+<Aciklama>
+Açıklama 2
+</Aciklama>
+<Resim>http://resim1</Resim> 
+</urun>
+<urun>
+<ID>3</ID> 
+<Adi>Ad 3</Adi> 
+<KategoriAdi>Kat 3</KategoriAdi> 
+<KategoriID>1</KategoriID> 
+<Fiyat>1.00</Fiyat> 
+<kur>USD</kur> 
+<Stok>10</Stok>
+<Aciklama>
+Açıklama 3
+</Aciklama>
+<Resim>http://resim1</Resim> 
+</urun>
+<urun>
+<ID>4</ID> 
+<Adi>Ad 4</Adi> 
+<KategoriAdi>Kat 4</KategoriAdi> 
+<KategoriID>1</KategoriID> 
+<Fiyat>1.00</Fiyat> 
+<kur>USD</kur> 
+<Stok>10</Stok>
+<Aciklama>
+Açıklama 4
+</Aciklama>
+<Resim>http://resim1</Resim> 
+</urun>
+<urun>
+<ID>5</ID> 
+<Adi>Ad 5</Adi> 
+<KategoriAdi>Kat 5</KategoriAdi> 
+<KategoriID>5</KategoriID> 
+<Fiyat>1.00</Fiyat> 
+<kur>USD</kur> 
+<Stok>10</Stok>
+<Aciklama>
+Açıklama 5
+</Aciklama>
+<Resim>http://resim1</Resim> 
+</urun>
+<urun>
+<ID>6</ID> 
+<Adi>Ad 6</Adi> 
+<KategoriAdi>Kat 6</KategoriAdi> 
+<KategoriID>6</KategoriID> 
+<Fiyat>1.00</Fiyat> 
+<kur>USD</kur> 
+<Stok>10</Stok>
+<Aciklama>
+Açıklama 6
+</Aciklama>
+<Resim>http://resim1</Resim> 
+</urun>
+<urun>
+<ID>7</ID> 
+<Adi>Ad 7</Adi> 
+<KategoriAdi>Kat 7</KategoriAdi> 
+<KategoriID>7</KategoriID> 
+<Fiyat>1.00</Fiyat> 
+<kur>USD</kur> 
+<Stok>10</Stok>
+<Aciklama>
+Açıklama 7
+</Aciklama>
+<Resim>http://resim1</Resim> 
+</urun>
+<urun>
+<ID>8</ID> 
+<Adi>Ad 8</Adi> 
+<KategoriAdi>Kat 8</KategoriAdi> 
+<KategoriID>8</KategoriID> 
+<Fiyat>1.00</Fiyat> 
+<kur>USD</kur> 
+<Stok>10</Stok>
+<Aciklama>
+Açıklama 8
+</Aciklama>
+<Resim>http://resim1</Resim> 
+</urun>
+<urun>
+<ID>9</ID> 
+<Adi>Ad 9</Adi> 
+<KategoriAdi>Kat 9</KategoriAdi> 
+<KategoriID>9</KategoriID> 
+<Fiyat>1.00</Fiyat> 
+<kur>USD</kur> 
+<Stok>10</Stok>
+<Aciklama>
+Açıklama 9
+</Aciklama>
+<Resim>http://resim1</Resim> 
+</urun>
+<urun>
+<ID>10</ID> 
+<Adi>Ad 10</Adi> 
+<KategoriAdi>Kat 10</KategoriAdi> 
+<KategoriID>10</KategoriID> 
+<Fiyat>1.00</Fiyat> 
+<kur>USD</kur> 
+<Stok>10</Stok>
+<Aciklama>
+Açıklama 10
+</Aciklama>
+<Resim>http://resim1</Resim> 
+</urun>
+<urun>
+<ID>11</ID> 
+<Adi>Ad 11</Adi> 
+<KategoriAdi>Kat 11</KategoriAdi> 
+<KategoriID>10</KategoriID> 
+<Fiyat>1.00</Fiyat> 
+<kur>USD</kur> 
+<Stok>10</Stok>
+<Aciklama>
+Açıklama 10
+</Aciklama>
+<Resim>http://resim1</Resim> 
+</urun>
+</urunler>
